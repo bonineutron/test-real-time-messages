@@ -2,9 +2,11 @@ import { createServer } from 'node:http';
 import { Server } from 'socket.io';
 import next from 'next';
 
-// When using middleware `hostname` and `port` must be provided below.
-const app = next();
+const dev = process.env.NODE_ENV !== 'production'; // Establece si está en desarrollo
+const hostname = 'localhost'; // Utiliza un nombre de host local, o lo que Vercel espera
+const port = process.env.PORT || 3000; // Usa el puerto proporcionado por Vercel o 3000 para desarrollo
 
+const app = next({ dev, hostname });
 const handler = app.getRequestHandler();
 
 app.prepare().then(() => {
