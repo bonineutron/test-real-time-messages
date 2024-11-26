@@ -2,11 +2,8 @@ import { createServer } from 'node:http';
 import { Server } from 'socket.io';
 import next from 'next';
 
-const dev = 'production';
-const hostname = 'https://test-real-time-messages.vercel.app';
-
 // When using middleware `hostname` and `port` must be provided below.
-const app = next({ dev, hostname });
+const app = next();
 
 const handler = app.getRequestHandler();
 
