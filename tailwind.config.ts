@@ -1,18 +1,19 @@
-import type { Config } from "tailwindcss";
+import { appConfigurationColors } from './src/utilities/app-configuration.utility';
+import type { Config } from 'tailwindcss';
 
-export default {
-  content: [
-    "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
-  ],
-  theme: {
-    extend: {
-      colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
-      },
-    },
-  },
-  plugins: [],
-} satisfies Config;
+const config: Config = {
+   content: ['./src/**/*.{js,ts,jsx,tsx}'],
+   theme: {
+      extend: {
+         colors: {
+            'primary-color': appConfigurationColors.primaryColor,
+            'secondary-color': appConfigurationColors.secondaryColor,
+            'primary-gray': appConfigurationColors.primaryGray,
+            'medium-gray': appConfigurationColors.mediumGray,
+            'light-gray': appConfigurationColors.lightGray
+         }
+      }
+   },
+   plugins: []
+};
+export default config;
